@@ -1,5 +1,5 @@
 # Start with a node.js build image to compile the vue.js app distributables
-FROM node:20.14.0 AS vuebuilder
+FROM node:alpine AS vuebuilder
 
 WORKDIR /build/openrepo/
 
@@ -15,19 +15,19 @@ RUN npm install && \
 FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y \
-      apt-utils          \
-      createrepo-c       \
-      curl               \
-      git                \   
-      gpg                \
-      gzip               \
-      libapt-pkg-dev     \
-      libpq-dev          \
-      python3            \
-      python3-pip        \
-      python3-venv       \
-      nginx
-      
+    apt-utils          \
+    createrepo-c       \
+    curl               \
+    git                \
+    gpg                \
+    gzip               \
+    libapt-pkg-dev     \
+    libpq-dev          \
+    python3            \
+    python3-pip        \
+    python3-venv       \
+    nginx
+
 WORKDIR /app
 
 
